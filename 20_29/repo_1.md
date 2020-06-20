@@ -1,11 +1,13 @@
-# coding: utf-8
-import gzip
-import json
-fname = 'jawiki-country.json.gz'
+モジュールreの関数で 正規表現操作を行う方法
+reモジュールを使うには、モジュールをインポートします。
 
-with gzip.open(fname, 'rt') as data_file:
-    for line in data_file:
-        data_json = json.loads(line)
-        if data_json['title'] == 'イギリス':
-            print(data_json['text'])
-            break
+import re
+文字列の先頭がパターンに一致するかを調べるには match メソッドを使用します。マッチした場合はその文字列を match オブジェクトとして返します。
+
+re.match(パターン, 文字列)
+先頭に限らずパターンに一致するかを調べるには search メソッドを使用します。マッチした場合は最初にマッチした文字列を match オブジェクトとして返します。
+
+re.search(パターン, 文字列)
+マッチする部分を全て確認するには findall メソッドを使用します。マッチした場合は文字列をリストとして返します。
+
+re.findall(パターン, 文字列)
